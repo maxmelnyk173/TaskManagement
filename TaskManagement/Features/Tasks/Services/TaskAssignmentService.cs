@@ -6,7 +6,7 @@ using TaskManagement.Features.Users.Services;
 
 namespace TaskManagement.Features.Tasks.Services;
 
-public partial class TaskAssignmentService(
+public class TaskAssignmentService(
     ITaskRepository repository,
     IUserCacheService userCache,
     ILogger<TaskAssignmentService> logger,
