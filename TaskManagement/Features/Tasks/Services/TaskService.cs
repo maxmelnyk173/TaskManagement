@@ -23,8 +23,7 @@ public class TaskService(ITaskRepository repository, ITaskAssignmentService assi
             task.Id,
             task.Title,
             task.State.ToString(),
-            task.AssignedUser == null ? null : new UserResponse(task.AssignedUser.Id, task.AssignedUser.Name),
-            task.Assignments.Select(a => new TaskUserAssignmentResponse(a.UserId, a.User.Name)).ToList()
+            [.. task.Assignments.Select(a => new TaskUserAssignmentResponse(a.UserId, a.User.Name))]
         );
     }
 
